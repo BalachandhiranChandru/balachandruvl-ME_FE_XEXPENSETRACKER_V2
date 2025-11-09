@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './App.css'; // Import the main CSS file
 import Modal from 'react-modal';
