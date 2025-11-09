@@ -1,38 +1,294 @@
-.App {
-  text-align: center;
+/* General Styling */
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-container {
+    max-width: 1200px;
+    width: 95%;
+    padding: 20px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+/* Card Styling */
+.card-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+}
+
+.wallet-card, .expenses-card {
+    min-width: 250px;
+}
+
+.card h2 {
+    font-size: 2.5em;
+    margin: 10px 0;
+}
+
+.wallet-card h2 { color: #82ca9d; } /* Greenish for balance */
+.expenses-card h2 { color: #ff6b6b; } /* Reddish for expenses */
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.add-income-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.add-expense-button {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+/* Dashboard Sections */
+.dashboard-sections {
+    display: flex;
+    gap: 20px;
+}
+
+.recent-transactions, .top-expenses {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    min-height: 300px;
+}
+
+.recent-transactions {
+    flex: 2; /* Give more space to transactions */
+}
+
+/* Transaction List */
+.transaction-list {
+    margin-top: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #555;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-title {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.transaction-date {
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.transaction-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.transaction-amount {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.edit-button, .delete-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    padding: 5px;
+}
+
+/* Modals (react-modal) */
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Modal {
+    background: #444;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+    outline: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.Modal h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.expense-form input, .expense-form select, .modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #555;
+    color: white;
+    box-sizing: border-box; /* Important for full width */
+}
+
+.expense-form select {
+    /* To make the select background look similar to input */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="292.4" height="292.4" viewBox="0 0 292.4 292.4"><path fill="%23fff" d="M287 78.4L146.2 219.6 5.4 78.4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 0.65em auto;
+}
+
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-primary {
+    background-color: #007bff; /* Blue for primary action */
+    color: white;
+}
+
+.button-secondary {
+    background-color: #6c757d; /* Gray for secondary action/cancel */
+    color: white;
+}
+
+/* Chart Placeholder */
+.chart-placeholder {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Recharts Custom Styling for Dark Theme */
+/* Make sure the tooltips and legends are visible */
+.recharts-default-tooltip {
+    background-color: #333 !important;
+    border: 1px solid #555 !important;
+    color: #fff !important;
+    padding: 5px !important;
+}
+
+.recharts-legend-wrapper {
+    color: #fff !important;
+}
+
+
+/* --- Responsive Design (Mobile/Tablet View) --- */
+@media (max-width: 992px) {
+    .card-group {
+        flex-direction: column;
+    }
+    .card {
+        width: 100%;
+    }
+    
+    .dashboard-sections {
+        flex-direction: column;
+    }
+    .recent-transactions, .top-expenses {
+        flex: 1;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .app-container {
+        padding: 10px;
+    }
+    
+    .card-group {
+        gap: 10px;
+    }
+    
+    .card {
+        min-height: 120px;
+    }
+    
+    .card h2 {
+        font-size: 2em;
+    }
+
+    .transaction-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .transaction-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
 }
