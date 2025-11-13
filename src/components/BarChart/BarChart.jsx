@@ -16,7 +16,7 @@ const BarChartComponent = ({ data }) => {
             <h2>Top Expenses</h2>
 
             <div className={styles.barWrapper}>
-                <ResponsiveContainer width="100%" height={280}>
+                <ResponsiveContainer width="100%" height={300}>
                     <BarChart data={data} layout="vertical">
                         <XAxis type="number" axisLine={false} display="none" />
                         <YAxis
@@ -32,7 +32,7 @@ const BarChartComponent = ({ data }) => {
                             formatter={(value) => [`$${value.toFixed(2)}`, 'Amount']} 
                         />
                         
-                        <Bar dataKey="value" fill="#8884d8" barSize={25} />
+                        <Bar dataKey="value" fill="#8884d8" barSize={20} />
                     </BarChart>
                 </ResponsiveContainer>
             </div>

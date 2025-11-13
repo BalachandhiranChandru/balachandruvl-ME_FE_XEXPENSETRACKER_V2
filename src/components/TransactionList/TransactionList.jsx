@@ -68,7 +68,7 @@ export default function TransactionList({ transactions, title, editTransactions,
         </div>
         : (
           <div className={styles.emptyTransactionsWrapper}>
-            <p>No transactions!</p>
+            <p>No transactions</p>
           </div>
         )
       }

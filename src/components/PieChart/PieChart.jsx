@@ -16,8 +16,8 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 };
 export default function PieChartComponent({data}) {
   return (
-    <ResponsiveContainer width="100%" height={250}>
-      <PieChart width={400} height={400}>
+    <ResponsiveContainer width="100%" height={200}>
+      <PieChart width={400} height={500}>
         <Pie
           data={data}
           cx="50%"
@@ -25,7 +25,7 @@ export default function PieChartComponent({data}) {
           labelLine={false}
           label={renderCustomizedLabel}
           outerRadius={80}
-          fill="#8884d8"
+          fill="#9994ebff"
           dataKey="value"
         >
           {data.map((entry, index) => (

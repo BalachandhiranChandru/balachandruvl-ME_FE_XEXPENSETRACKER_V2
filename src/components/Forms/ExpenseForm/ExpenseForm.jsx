@@ -23,7 +23,7 @@ const ExpenseForm = ({ setIsOpen, expenseList, setExpenseList, editId, setBalanc
         const priceAmount = Number(formData.price);
 
         if (balance < priceAmount) {
-            enqueueSnackbar("Price should be less than the wallet balance", { variant: "warning" })
+            enqueueSnackbar("Price is less than the wallet balance", { variant: "warning" })
             setIsOpen(false) 
             return
         }
@@ -36,7 +36,7 @@ const ExpenseForm = ({ setIsOpen, expenseList, setExpenseList, editId, setBalanc
         setExpenseList(prev => [newExpense, ...prev])
 
         setFormData({ title: '', category: '', price: '', date: '' })
-        enqueueSnackbar("Expense added successfully!", { variant: "success" })
+        enqueueSnackbar("Expense added successfully", { variant: "success" })
         setIsOpen(false)
     }
 

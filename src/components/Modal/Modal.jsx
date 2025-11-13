@@ -10,8 +10,8 @@ const ModalWrapper = ({ isOpen, setIsOpen, children }) => {
 
     const customStyles = {
         content: {
-            width: '95%',
-            maxWidth: '572px',
+            width: '96%',
+            maxWidth: '500px',
             top: '50%',
             left: '50%',
             transform: 'translateX(-50%) translateY(-50%)',
