@@ -18,7 +18,6 @@ const ExpenseForm = ({ setIsOpen, expenseList, setExpenseList, editId, setBalanc
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }))
     }
-
     const handleAdd = (e) => {
         e.preventDefault()
         const priceAmount = Number(formData.price);

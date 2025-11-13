@@ -24,7 +24,6 @@ export default function TransactionList({ transactions, title, editTransactions,
       prev.filter(item => item.id !== id) 
     ))
   }
-
   const handleEdit = (id) => {
     setEditId(id)
     setIsDisplayEditor(true)

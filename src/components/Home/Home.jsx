@@ -22,7 +22,6 @@ export default function Home() {
   entertainment: 0,
   travel: 0,
  });
-
  useEffect(() => {
   const localBalance = localStorage.getItem("balance");
 

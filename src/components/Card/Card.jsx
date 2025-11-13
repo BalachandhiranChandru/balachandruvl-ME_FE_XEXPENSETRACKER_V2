@@ -20,5 +20,4 @@ const Card = ({ title, money, buttonText, buttonType, handleClick, success = tru
         </div>
     )
 }
-
 export default Card;

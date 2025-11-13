@@ -17,7 +17,6 @@ const Pagination = ({ updatePage, currentPage, totalPages }) => {
 
     const isPrevDisabled = currentPage === 1;
     const isNextDisabled = totalPages === currentPage;
-
     return (
         <div className={styles.paginationWrapper}>
             

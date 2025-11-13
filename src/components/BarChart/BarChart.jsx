@@ -39,5 +39,4 @@ const BarChartComponent = ({ data }) => {
         </div>
     );
 };
-
 export default BarChartComponent;

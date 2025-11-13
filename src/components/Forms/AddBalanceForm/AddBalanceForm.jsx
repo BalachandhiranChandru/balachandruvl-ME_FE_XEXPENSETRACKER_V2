@@ -21,7 +21,6 @@ export default function AddBalanceForm({ setIsOpen, setBalance }) {
     setBalance(prev => prev + Number(income))
     setIsOpen(false)
   }
-
   return (
     <>
       <div className={styles.formWrapper}>

@@ -18,5 +18,4 @@ const Button = ({ children, handleClick, style = 'primary', shadow = false, type
         </button>
     )
 }
-
 export default Button;

@@ -24,7 +24,6 @@ const ModalWrapper = ({ isOpen, setIsOpen, children }) => {
             padding: '2rem',
         }
     };
-
     return (
         <Modal
             isOpen={isOpen}
